@@ -89,6 +89,13 @@ webpackJsonp([0,1],[
 	    editorState: null,
 	    value: null
 	};
+	// declare module "rc-editor-utils" {
+	//   export interface EditorUtils {
+	//     getCurrentInlineStyle(editorState: EditorState): any;
+	//     getCurrentEntity(editorState: EditorState): any;
+	//     getSelectedBlock(editorState: EditorState): ContentBlock;
+	//   }
+	// }
 	var EditorUtils = {
 	    getCurrentInlineStyle: function getCurrentInlineStyle(editorState) {
 	        if (editorState === inlineStyleCache.editorState) {

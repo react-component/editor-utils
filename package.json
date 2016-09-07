@@ -1,6 +1,6 @@
 {
   "name": "rc-editor-utils",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "editor-utils ui component for react",
   "keywords": [
     "react",
@@ -43,12 +43,12 @@
   },
   "peerDependencies": {
     "react-addons-test-utils": "0.14.x",
-    "react": "0.14.x",
-    "react-dom": "0.14.x",
+    "react": "15.x",
+    "react-dom": "15.x",
     "immutable": "^3.7.4"
   },
   "dependencies": {
-    "draft-js": "^0.7.0"
+    "draft-js": "^0.8.0"
   },
   "pre-commit": [
     "lint"

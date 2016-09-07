@@ -9,7 +9,7 @@ export default function getToggleBlockStyleFunc(callbacks) {
     const blockTypedContent = Modifier.setBlockType(
       editorState.getCurrentContent(),
       editorState.getSelection(),
-      styleName,
+      styleName
     );
 
     setEditorState(

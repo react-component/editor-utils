@@ -106,6 +106,14 @@ webpackJsonp([0,1],[
 	
 	var _getSelectedBlock2 = _interopRequireDefault(_getSelectedBlock);
 	
+	var _getEntitySelectionState = __webpack_require__(308);
+	
+	var _getEntitySelectionState2 = _interopRequireDefault(_getEntitySelectionState);
+	
+	var _findEntity = __webpack_require__(309);
+	
+	var _findEntity2 = _interopRequireDefault(_findEntity);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var EditorUtils = {
@@ -113,7 +121,9 @@ webpackJsonp([0,1],[
 	    getToggleBlockStyleFunc: _getToggleBlockStyleFunc2.default,
 	    getCurrentInlineStyle: _getCurrentInlineStyle2.default,
 	    getCurrentEntity: _getCurrentEntity2.default,
-	    getSelectedBlock: _getSelectedBlock2.default
+	    getSelectedBlock: _getSelectedBlock2.default,
+	    getEntitySelectionState: _getEntitySelectionState2.default,
+	    findEntity: _findEntity2.default
 	};
 	exports.default = EditorUtils;
 	module.exports = exports['default'];
@@ -136,6 +146,8 @@ webpackJsonp([0,1],[
 	        var getEditorState = callbacks.getEditorState;
 	        var setEditorState = callbacks.setEditorState;
 	
+	        var editorState = getEditorState();
+	        var selection = editorState.getSelection();
 	        setEditorState(_draftJs.RichUtils.toggleInlineStyle(getEditorState(), styleName));
 	    };
 	}
@@ -37873,6 +37885,64 @@ webpackJsonp([0,1],[
 	        }
 	    }
 	    return entity;
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 308 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = getEntitySelectionState;
+	function getEntitySelectionState(contentState, entityKey) {
+	    var blockMap = contentState.getBlockMap();
+	    console.log('>> blockmap', blockMap.toSource());
+	    // const selectionKey = selectionState.getAnchorKey();
+	    // const selectionOffset = selectionState.getAnchorOffset();
+	    // const block = contentState.getBlockForKey(selectionKey);
+	    // const blockKey = block.getKey();
+	    //
+	    // let entitySelection;
+	    // getRangesForDraftEntity(block, entityKey).forEach((range) => {
+	    //   if (range.start <= selectionOffset && selectionOffset <= range.end) {
+	    //     entitySelection = new SelectionState({
+	    //       anchorOffset: range.start,
+	    //       anchorKey: blockKey,
+	    //       focusOffset: range.end,
+	    //       focusKey: blockKey,
+	    //       isBackward: false,
+	    //       hasFocus: selectionState.getHasFocus(),
+	    //     });
+	    //   }
+	    // });
+	    // return entitySelection;
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 309 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = findEntities;
+	
+	var _draftJs = __webpack_require__(7);
+	
+	function findEntities(entityType) {
+	    return function findEntitiesFunc(contentBlock, callback) {
+	        contentBlock.findEntityRanges(function (character) {
+	            var entityKey = character.getEntity();
+	            return entityKey !== null && _draftJs.Entity.get(entityKey).getType() === entityType;
+	        }, callback);
+	    };
 	}
 	module.exports = exports['default'];
 

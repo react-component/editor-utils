@@ -37970,7 +37970,7 @@ webpackJsonp([0,1],[
 	
 	function getSelectedText(contentState, selectionState) {
 	    var fragment = (0, _getContentStateFragment2.default)(contentState, selectionState);
-	    var plainText = fragment.map(function (block) {
+	    return fragment.map(function (block) {
 	        return block.getText();
 	    }).join('');
 	}

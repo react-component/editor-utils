@@ -114,6 +114,10 @@ webpackJsonp([0,1],[
 	
 	var _findEntity2 = _interopRequireDefault(_findEntity);
 	
+	var _getSelectedText = __webpack_require__(310);
+	
+	var _getSelectedText2 = _interopRequireDefault(_getSelectedText);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var EditorUtils = {
@@ -123,7 +127,8 @@ webpackJsonp([0,1],[
 	    getCurrentEntity: _getCurrentEntity2.default,
 	    getSelectedBlock: _getSelectedBlock2.default,
 	    getEntitySelectionState: _getEntitySelectionState2.default,
-	    findEntity: _findEntity2.default
+	    findEntity: _findEntity2.default,
+	    getSelectedText: _getSelectedText2.default
 	};
 	exports.default = EditorUtils;
 	module.exports = exports['default'];
@@ -37943,6 +37948,31 @@ webpackJsonp([0,1],[
 	            return entityKey !== null && _draftJs.Entity.get(entityKey).getType() === entityType;
 	        }, callback);
 	    };
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 310 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = getSelectedText;
+	
+	var _getContentStateFragment = __webpack_require__(26);
+	
+	var _getContentStateFragment2 = _interopRequireDefault(_getContentStateFragment);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function getSelectedText(contentState, selectionState) {
+	    var fragment = (0, _getContentStateFragment2.default)(contentState, selectionState);
+	    var plainText = fragment.map(function (block) {
+	        return block.getText();
+	    }).join('');
 	}
 	module.exports = exports['default'];
 

@@ -1,6 +1,6 @@
 {
   "name": "rc-editor-utils",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "editor-utils ui component for react",
   "keywords": [
     "react",
@@ -19,7 +19,7 @@
   },
   "files":["lib", "assets/*.css"],
   "licenses": "MIT",
-  
+
   "main":"./lib/index",
   "config":{
     "port": 8001
@@ -45,10 +45,8 @@
     "react-addons-test-utils": "0.14.x",
     "react": "15.x",
     "react-dom": "15.x",
-    "immutable": "^3.7.4"
-  },
-  "dependencies": {
-    "draft-js": "^0.8.0"
+    "immutable": "^3.7.4",
+    "draft-js": "^0.9.1"
   },
   "pre-commit": [
     "lint"

@@ -1,6 +1,7 @@
 import { EditorState } from "draft-js";
 import getSelectedBlock from './getSelectedBlock';
 
+
 export default function getCurrentEntity(editorState: EditorState) {
   let entity;
   const selection = editorState.getSelection();

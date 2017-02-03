@@ -37930,22 +37930,19 @@ webpackJsonp([0,1],[
 
 /***/ },
 /* 309 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
 	exports.default = findEntities;
-	
-	var _draftJs = __webpack_require__(7);
-	
 	function findEntities(entityType) {
-	    return function findEntitiesFunc(contentBlock, callback) {
+	    return function findEntitiesFunc(contentBlock, callback, contentState) {
 	        contentBlock.findEntityRanges(function (character) {
 	            var entityKey = character.getEntity();
-	            return entityKey !== null && _draftJs.Entity.get(entityKey).getType() === entityType;
+	            return entityKey !== null && contentState.getEntity(entityKey).getType() === entityType;
 	        }, callback);
 	    };
 	}

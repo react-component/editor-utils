@@ -39,7 +39,7 @@
   "devDependencies": {
     "expect.js": "0.3.x",
     "pre-commit": "1.x",
-    "rc-tools": "5.x"
+    "rc-tools": "8.x"
   },
   "peerDependencies": {
     "react-addons-test-utils": "0.14.x",
